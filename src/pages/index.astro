@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Home | StariGeri.dev">
+  <Navbar activePage="Home" />
   <section class="hero-section">
     <h1>Hey! I'm <span class="text-gradient">StariGeri</span>,</h1>
     <h2 class="hero-text">
@@ -21,12 +23,12 @@ import Layout from "../layouts/Layout.astro";
     max-width: 1000px;
     text-align: center;
   }
-  h2 {
+  .hero-text {
     font-size: 2rem;
     font-family: var(--text);
     font-weight: 400;
     margin: 0;
-    color: var(--primaryColor);
+    color: var(--secondaryColor);
   }
   .text-gradient {
     background-image: var(--accent-gradient);
