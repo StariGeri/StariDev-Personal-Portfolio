@@ -22,26 +22,27 @@ const { activePage } = Astro.props;
     <div class="menu__content">
       <ul class="menu">
         <li class="list__item">
-          <a class={activePage == "Home" && "active"} href="/index">Home</a>
+          <a class={activePage == "Home" ? "activePage" : ""} href="/index">Home.</a>
         </li>
         <li class="list__item">
-          <a class={activePage == "Projects" && "active"} href="/projects"
-            >Projects</a
+          <a class={activePage == "Projects" ? "activePage" : ""} href="/projects"
+            >Projects.</a
           >
         </li>
         <li class="list__item">
-          <a class={activePage == "Resume" && "active"} href="/resume">Resume</a
+          <a class={activePage == "Resume" ? "activePage" : ""} href="/resume"
+            >Resume.</a
           >
         </li>
         <li class="list__item">
-          <a class={activePage == "Contact" && "active"} href="/contact"
-            >Contact</a
+          <a class={activePage == "Contact" ? "activePage" : ""} href="/contact"
+            >Contact.</a
           >
         </li>
       </ul>
       <div class="seperator__line"></div>
       <div class="right__column">
-        <h3 class="connect__subtitle">Let's Connect!</h3>
+        <h3 class="connect__subtitle">I'm just a click away. <br>Let's Connect!</h3>
         <div class="social__container">
           <a
             class="social__link"
@@ -132,6 +133,7 @@ const { activePage } = Astro.props;
       font-weight: 500;
       color: var(--lightColor);
       font-family: var(--text);
+      text-align: center;
     }
     .social__container {
       display: flex;
@@ -152,6 +154,7 @@ const { activePage } = Astro.props;
     }
     .social__link[data-tool-tip]::after {
       content: attr(data-tool-tip);
+      font-family: var(--text);
       position: absolute;
       display: block;
       margin-top: 20px;
@@ -238,17 +241,6 @@ const { activePage } = Astro.props;
       margin: 15px 0;
     }
     .wrapper ul li a {
-      color: none;
-      text-decoration: none;
-      font-size: 60px;
-      font-weight: 500;
-      color: var(--lightColor);
-      position: relative;
-      line-height: 50px;
-      transition: all 0.3s ease;
-      font-family: var(--text);
-    }
-    .wrapper ul li a {
       color: var(--lightColor);
       text-decoration: none;
       position: relative;
@@ -256,7 +248,13 @@ const { activePage } = Astro.props;
       font-size: 4rem;
       font-weight: 500;
       line-height: 50px;
+      transition: all 0.3s ease;
     }
+
+    .activePage{
+      color: blue;
+    }
+
     .wrapper ul li a::after {
       content: "";
       position: absolute;

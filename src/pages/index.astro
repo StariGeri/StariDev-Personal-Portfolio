@@ -8,10 +8,12 @@ import Navbar from "../components/Navbar.astro";
   <Navbar activePage="Home" />
   <Blob />
   <section class="hero-section">
-    <h1>Hey! I'm <span class="text-gradient">StariGeri</span>,</h1>
-    <h2 class="hero-text">
-      A Computer Science student, who lives where Design meets Engineering
-    </h2>
+    <div class="hero__contentWrapper">
+      <h1>Hey!<br>I'm <span class="text-gradient">StariGeri</span>.</h1>
+      <h2 class="hero-text">
+        a Computer Science Student, who lives where Design meets Engineering. I'm eager to create web experiences that not just functional, but look dope.
+      </h2>
+    </div>
   </section>
 </Layout>
 
@@ -23,14 +25,17 @@ import Navbar from "../components/Navbar.astro";
     color: var(--primaryColor);
     font-family: var(--title);
     max-width: 1000px;
-    text-align: center;
+    text-align: left;
   }
   .hero-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: var(--text);
     font-weight: 400;
     margin: 0;
     color: var(--secondaryColor);
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
   }
   .text-gradient {
     background-image: var(--accent-gradient);
@@ -47,5 +52,12 @@ import Navbar from "../components/Navbar.astro";
     align-items: center;
     justify-content: center;
     background-color: var(--bgColor);
+  }
+  .hero__contentWrapper{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+    max-width: 1200px;
   }
 </style>
