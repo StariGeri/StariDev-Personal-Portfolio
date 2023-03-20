@@ -45,20 +45,28 @@ const { activePage } = Astro.props;
         <div class="social__container">
           <a
             class="social__link"
+            data-tool-tip="Instagram"
             href="https://www.instagram.com/starigeri/"
             target="_blank">IG</a
           >
           <a
             class="social__link"
+            data-tool-tip="GitHub"
             href="https://github.com/StariGeri"
             target="_blank">GH</a
           >
           <a
             class="social__link"
+            data-tool-tip="LinkedIn"
             href="https://www.linkedin.com/in/gergo-starosta/"
             target="_blank">LD</a
           >
-          <a href="https://mail.google.com/mail/u/1/#inbox?compose=CllgCJfmrTFjwqlKSjggJlgrfzqkdxQSrpWfjHXxxQJGsLBLbPxTtPKPZBDvxQqdfFHfFhCMkHL" class="social__link" target="_blank">EM</a> 
+          <a
+            href="https://mail.google.com/mail/u/1/#inbox?compose=CllgCJfmrTFjwqlKSjggJlgrfzqkdxQSrpWfjHXxxQJGsLBLbPxTtPKPZBDvxQqdfFHfFhCMkHL"
+            class="social__link"
+            data-tool-tip="Email"
+            target="_blank">EM</a
+          >
         </div>
       </div>
     </div>
@@ -72,7 +80,7 @@ const { activePage } = Astro.props;
       left: 0;
       width: 100%;
       height: 5rem;
-      padding: 0 2rem;
+      padding: 0 5rem;
       z-index: 1;
       display: flex;
       align-items: center;
@@ -131,8 +139,9 @@ const { activePage } = Astro.props;
       align-items: center;
       margin-top: 1rem;
     }
-    .social__link {
-      font-size: 2rem;
+    .social__link[data-tool-tip] {
+      font-size: 2.5rem;
+      position: relative;
       font-weight: 500;
       color: var(--secondaryColor);
       font-family: var(--text2);
@@ -141,7 +150,27 @@ const { activePage } = Astro.props;
       cursor: pointer;
       margin: 10px;
     }
-    .social__link:hover  {
+    .social__link[data-tool-tip]::after {
+      content: attr(data-tool-tip);
+      position: absolute;
+      display: block;
+      margin-top: 20px;
+      background-color: var(--secondaryColor);
+      padding: 8px 14px;
+      color: var(--lightColor);
+      border-radius: 5px;
+      font-size: 1.5rem;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      transform: scale(0);
+      transition: transform ease-out 0.3s, top ease-out 0.3s;
+    }
+    .social__link[data-tool-tip]:hover::after {
+      transform: scale(1);
+      top: 100%;
+    }
+    .social__link:hover {
       color: var(--lightColor);
       transition: all 0.5s ease;
     }
@@ -211,7 +240,7 @@ const { activePage } = Astro.props;
     .wrapper ul li a {
       color: none;
       text-decoration: none;
-      font-size: 40px;
+      font-size: 60px;
       font-weight: 500;
       color: var(--lightColor);
       position: relative;
@@ -224,7 +253,7 @@ const { activePage } = Astro.props;
       text-decoration: none;
       position: relative;
       font-family: var(--text);
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 500;
       line-height: 50px;
     }
@@ -236,7 +265,7 @@ const { activePage } = Astro.props;
       bottom: 0;
       right: 0;
       width: 0%;
-      height: 50px;
+      height: 80%;
       border-radius: 10px;
       background-color: var(--secondaryColor);
       transition: 0.5s;
