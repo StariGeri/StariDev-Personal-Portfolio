@@ -5,6 +5,7 @@ export interface NavbarProps {
 
 const { activePage } = Astro.props;
 ---
+
 <!---NAVBAR--->
 <nav class="navbar">
   <div class="logo__wrapper">
@@ -18,15 +19,31 @@ const { activePage } = Astro.props;
     </div>
   </label>
   <div class="wrapper">
-    <ul class="menu">
-      <li class="list__item">
-        <a class={activePage == "Home" && "active"} href="/index">Home</a>
-      </li>
-      <li class="list__item"><a class={activePage == "Projects" && "active"} href="/projects">Projects</a></li>
-      <li class="list__item"><a class={activePage == "Resume" && "active"} href="/resume">Resume</a></li>
-      <li class="list__item"><a class={activePage == "Contact" && "active"} href="/contact">Contact</a></li>
-    </ul>
-    <div class="seperator__line"></div>
+    <div class="menu__content">
+      <ul class="menu">
+        <li class="list__item">
+          <a class={activePage == "Home" && "active"} href="/index">Home</a>
+        </li>
+        <li class="list__item">
+          <a class={activePage == "Projects" && "active"} href="/projects"
+            >Projects</a>
+        </li>
+        <li class="list__item">
+          <a class={activePage == "Resume" && "active"} href="/resume"
+            >Resume</a>
+        </li>
+        <li class="list__item">
+          <a class={activePage == "Contact" && "active"} href="/contact"
+            >Contact</a>
+        </li>
+      </ul>
+      <div class="seperator__line"></div>
+      <div class = "right__column">
+        <a class = "social__link" href = "https://www.instagram.com/starigeri/" target="_blank">IN</a>
+        <a class = "social__link" href="https://github.com/StariGeri" target="_blank">GH</a>
+        <a class = "social__link" href= "https://www.linkedin.com/in/gergo-starosta/" target="_blank">LD</a>
+      </div>
+    </div>
   </div>
 </nav>
 <style>
@@ -45,6 +62,9 @@ const { activePage } = Astro.props;
     justify-content: space-between;
   }
   .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -53,6 +73,40 @@ const { activePage } = Astro.props;
     background: linear-gradient(-135deg, var(--bgColor), var(--bgColor2));
     clip-path: circle(1px at calc(100% - 45px) 45px);
     transition: all 0.5s ease-in-out;
+  }
+  .menu__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    list-style: none;
+    text-align: center;
+  }
+  .right__column{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+  }
+  .social__link{
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--lightColor);
+    font-family: var(--text2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
   #active:checked ~ .wrapper {
     clip-path: circle(75%);
@@ -111,14 +165,6 @@ const { activePage } = Astro.props;
     width: 2rem;
     transform: rotate(-45deg) translate(6px, -6px);
   }
-  .wrapper ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    list-style: none;
-    text-align: center;
-  }
   .wrapper ul li {
     margin: 15px 0;
   }
@@ -165,5 +211,13 @@ const { activePage } = Astro.props;
   }
   input[type="checkbox"] {
     display: none;
+  }
+
+  .seperator__line {
+    position: absolute;
+    width: 10px;
+    height: 80%;
+    background-color: var(--lightColor);
+    opacity: 1;
   }
 </style>

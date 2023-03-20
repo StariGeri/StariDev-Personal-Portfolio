@@ -21,8 +21,8 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
-	/* Global Fonts */
-  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+  /* Global Fonts */
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Oswald:wght@300;400;500&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
   /*Global Colors*/
   :root {
     --accent: 124, 58, 237;
@@ -33,12 +33,13 @@ const { title } = Astro.props;
       #34a0a4 60%
     );
     --bgColor: #10101a;
-	--bgColor2: #141B25;
+    --bgColor2: #141b25;
     --primaryColor: #90e0ef;
     --secondaryColor: #34a0a4;
     --lightColor: #fcfffd;
-	--title: 'Montserrat', sans-serif;
-	--text: 'Red Hat Display', sans-serif;
+    --title: "Montserrat", sans-serif;
+    --text: "Red Hat Display", sans-serif;
+    --text2: "Oswald", sans-serif;
   }
   body {
     background-color: var(--bgColor);
