@@ -26,23 +26,28 @@ const { activePage } = Astro.props;
         </li>
         <li class="list__item">
           <a class={activePage == "Projects" && "active"} href="/projects"
-            >Projects</a>
+            >Projects</a
+          >
         </li>
         <li class="list__item">
-          <a class={activePage == "Resume" && "active"} href="/resume">Resume</a>
+          <a class={activePage == "Resume" && "active"} href="/resume">Resume</a
+          >
         </li>
         <li class="list__item">
-          <a class={activePage == "Contact" && "active"} href="/contact">Contact</a>
+          <a class={activePage == "Contact" && "active"} href="/contact"
+            >Contact</a
+          >
         </li>
       </ul>
       <div class="seperator__line"></div>
       <div class="right__column">
-        <h3 class = "connect__subtitle">Let's Connect!</h3>
+        <h3 class="connect__subtitle">Let's Connect!</h3>
         <div class="social__container">
           <a
             class="social__link"
             href="https://www.instagram.com/starigeri/"
-            target="_blank">IN</a>
+            target="_blank">IG</a
+          >
           <a
             class="social__link"
             href="https://github.com/StariGeri"
@@ -53,6 +58,7 @@ const { activePage } = Astro.props;
             href="https://www.linkedin.com/in/gergo-starosta/"
             target="_blank">LD</a
           >
+          <a href="https://mail.google.com/mail/u/1/#inbox?compose=CllgCJfmrTFjwqlKSjggJlgrfzqkdxQSrpWfjHXxxQJGsLBLbPxTtPKPZBDvxQqdfFHfFhCMkHL" class="social__link" target="_blank">EM</a> 
         </div>
       </div>
     </div>
@@ -82,11 +88,7 @@ const { activePage } = Astro.props;
       left: 0;
       height: 100%;
       width: 100%;
-      background: linear-gradient(
-        -130deg,
-        var(--secondaryColor),
-        var(--bgColor)
-      );
+      background: linear-gradient(-130deg, var(--bgColor2), var(--bgColor));
       clip-path: circle(0.5px at calc(100% - 45px) 45px);
       transition: all 0.5s ease-in-out;
     }
@@ -98,6 +100,7 @@ const { activePage } = Astro.props;
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
+      color: var(--bgColor);
     }
     .menu {
       display: flex;
@@ -111,24 +114,36 @@ const { activePage } = Astro.props;
     }
     .right__column {
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
       width: 50%;
     }
-    .connect__subtitle{
-      font-size: 1.5rem;
+    .connect__subtitle {
+      font-size: 2rem;
       font-weight: 500;
       color: var(--lightColor);
       font-family: var(--text);
     }
+    .social__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
     .social__link {
       font-size: 2rem;
       font-weight: 500;
-      color: var(--lightColor);
+      color: var(--secondaryColor);
       font-family: var(--text2);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
       cursor: pointer;
+      margin: 10px;
+    }
+    .social__link:hover  {
+      color: var(--lightColor);
+      transition: all 0.5s ease;
     }
     #active:checked ~ .wrapper {
       clip-path: circle(75%);
@@ -146,6 +161,9 @@ const { activePage } = Astro.props;
       font-family: var(--text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    #active:checked ~ .logo-wrapper .logo {
+      color: var(--primaryColor);
     }
     .menu__btn {
       z-index: 2;
@@ -205,8 +223,6 @@ const { activePage } = Astro.props;
       color: var(--lightColor);
       text-decoration: none;
       position: relative;
-      opacity: 70%;
-
       font-family: var(--text);
       font-size: 3rem;
       font-weight: 500;
@@ -217,18 +233,16 @@ const { activePage } = Astro.props;
       position: absolute;
       z-index: -1;
       left: 0;
-      top: 50%;
+      bottom: 0;
+      right: 0;
       width: 0%;
-      height: 4px;
+      height: 50px;
       border-radius: 10px;
-      background-color: var(--primaryColor);
+      background-color: var(--secondaryColor);
       transition: 0.5s;
     }
     .wrapper ul li a:hover::after {
       width: 100%;
-      opacity: 50%;
-    }
-    .wrapper ul li a:hover {
       opacity: 100%;
     }
     input[type="checkbox"] {
@@ -236,11 +250,12 @@ const { activePage } = Astro.props;
     }
 
     .seperator__line {
-      width: 10px;
+      width: 5px;
       height: 80%;
       max-height: 500px;
-      background-color: var(--lightColor);
-      opacity: 1;
+      border-radius: 20%;
+      background-color: var(--primaryColor);
+      opacity: 0.5;
     }
   </style>
 </nav>

@@ -1,0 +1,42 @@
+<div id="blob"></div>
+
+<style>
+  #blob {
+    background-color: var(--lightColor);
+    height: 400px;
+    aspect-ratio: 1;
+    position: fixed;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent-gradient);
+    opacity: 0.5;
+    animation: rotate 20s infinite;
+    filter: blur(100px);
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+  }
+</style>
+<script>
+  const blob = document.getElementById("blob") as HTMLElement;
+
+  window.onpointermove = (event) => {
+    const { clientX, clientY } = event;
+
+    blob.animate(
+      {
+        left: `${clientX}px`,
+        top: `${clientY}px`,
+      },
+      { duration: 30000, fill: "forwards" }
+    );
+  };
+</script>
