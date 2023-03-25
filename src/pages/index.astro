@@ -81,8 +81,30 @@ import Layout from "../layouts/Layout.astro";
         ></path>
       </svg>
     </div>
+    <div id="scrollContainer">
+      <p class="scroll">Scroll</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="white"
+        class="svgScroll"
+        stroke-width="2"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M20.03 4.72a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 11.69l6.97-6.97a.75.75 0 011.06 0zm0 6a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06L12 17.69l6.97-6.97a.75.75 0 011.06 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </div>
   </section>
-  <section class="readMe-section"></section>
+  <section class="readMe-section">
+    <h2 class="subtitle">ReadMe</h2>
+    <div class="container">
+      <div class="card">
+        <img class="card-img" src="/images/me.JPG" alt="It's me!" />
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -133,6 +155,37 @@ import Layout from "../layouts/Layout.astro";
     position: relative;
     z-index: 0;
   }
+  .svgScroll {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 23px;
+    z-index: 1;
+  }
+  .scroll {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1;
+    font-size: 1.5rem;
+    font-family: var(--text2);
+    writing-mode: vertical-lr;
+    color: white;
+    animation: moveUpDown 3s ease-in-out infinite forwards;
+  }
+  .scroll-down{
+    opacity: 0;
+  }
+  @keyframes moveUpDown {
+    0%,
+    100% {
+      transform: translateY(5px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
   .hero__contentWrapper {
     display: flex;
     flex-direction: column;
@@ -163,11 +216,39 @@ import Layout from "../layouts/Layout.astro";
   /*Read Me Section */
   .readMe-section {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--bgColor);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+  .subtitle {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primaryColor);
+    font-family: var(--text);
+    text-align: left;
+    margin: 3% auto;
+    z-index: 1;
+  }
 </style>
+<script>
+  //Scrolling
+  const scroll = document.getElementById("scrollContainer") as HTMLElement;
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) {
+      scroll.classList.remove("scroll-down");
+    }
+    if (currentScroll > lastScroll &&
+      !scroll.classList.contains("scroll-down")
+    ) {
+      scroll.classList.add("scroll-down");
+    }
+    lastScroll = currentScroll;
+  });
+</script>
