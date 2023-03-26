@@ -129,7 +129,16 @@ import Button from "../components/Button.astro";
         </div>
       </div>
       <div class="imageWrapper">
-        <img class="cardImg" src="/images/me.JPG" alt="It's me!" />
+        <img
+          class="cardImg"
+          src="/images/me.JPG"
+          alt="It's me!"
+          data-tilt
+          data-tilt-reverse="true"
+          data-tilt-reset="false"
+          data-tilt-startX="-10"
+          data-tilt-startY="10"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="svg2"
@@ -165,6 +174,7 @@ import Button from "../components/Button.astro";
       </div>
     </div>
   </section>
+  <script type="text/javascript" src="/vanilla-tilt.min.js"></script>
 </Layout>
 
 <style>
