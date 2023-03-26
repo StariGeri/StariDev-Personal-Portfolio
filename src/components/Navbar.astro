@@ -319,12 +319,14 @@ const { activePage } = Astro.props;
   .scroll-down {
     display: none;
     transform: translate3d(0, -100%, 0);
+    background-color: none;
     transition: all 0.3s ease;
   }
   .scroll-up {
     display: flex;
     transition: all 0.3s ease;
     filter: drop-shadow(0 -10px 20px rgba(0, 0, 0, 0.2));
+    background-color: var(--bgColor);
   }
 </style>
 
