@@ -1,0 +1,129 @@
+---
+/**
+ * @name BlogCard
+ * @description Card for the Latest Writing section
+ */
+import Button from "./Button.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  hrefLink: string;
+  date: string;
+  tags: string[];
+  readTime: number;
+}
+
+const { hrefLink, title, description, date, tags, readTime } = Astro.props;
+---
+
+<li class="cards-item">
+  <a href={hrefLink}>
+    <div class="card">
+      <div class="card-content">
+        <p class="tags">{tags.map((tag) => <span class="tag">{tag} </span>)}</p>
+        <h3 class="card-title md:text-lg xl:text-xl">{title}</h3>
+        <p class="card-body">{description}</p>
+        <div class="info">
+          <p class="date">{date}</p>
+          <div class="dot"></div>
+          <p class="read-time">{readTime} min read</p>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
+
+<style>
+  .cards-item {
+    display: flex;
+    padding: 1rem;
+    z-index: 5;
+  }
+  @media screen and (min-width: 56rem) {
+    .cards-item {
+      width: 33.3333%;
+    }
+  }
+  @media screen and (min-width: 40rem) {
+    .cards-item {
+      width: 50%;
+    }
+  }
+  @media screen and (min-width: 62rem) {
+    .cards-item {
+      width: 33%;
+    }
+  }
+  .card {
+    background-color: transparent;
+    border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+    transition: all 0.3s ease-in-out;
+  }
+  .card:hover h3 {
+    color: var(--secondaryColor);
+  }
+  .card:hover {
+    border-left: 1px solid var(--secondaryColor);
+  }
+  .card-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 5;
+  }
+  .tags {
+    display: flex;
+    gap: 5px;
+    font-family: var(--text);
+    font-size: 12px;
+    color: var(--primaryColor);
+    font-weight: normal;
+  }
+  .tag {
+    font-family: var(--text);
+    font-size: 12px;
+    color: var(--bgColor);
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+  }
+  .card-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    margin: 0.5rem 0 0.5rem 0;
+    color: white;
+    transition: all 0.3s ease-in-out;
+  }
+  .card-body {
+    font-family: var(--text);
+    line-height: 20px;
+    margin: 0.5rem 0 0.5rem 0;
+    color: white;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .info p {
+    font-family: var(--text);
+    font-size: 14px;
+    color: var(--primaryColor);
+    font-weight: normal;
+  }
+  .dot {
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+</style>

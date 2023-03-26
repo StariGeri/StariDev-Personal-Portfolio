@@ -1,4 +1,9 @@
 ---
+/**
+ * @name Button
+ * @description Button for the whole website
+ */
+
 export interface Props {
   url: string;
   text: string;
@@ -6,44 +11,44 @@ export interface Props {
 const { url, text } = Astro.props;
 ---
 
-<a href = {url}><button>{text}</button></a>
+<a href={url}><button>{text}</button></a>
 
 <style>
-    button {
-        background-color: transparent;
-        border: 2px solid var(--primaryColor);
-        color: white;
-        padding: 16px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: 500;
-        font-family: var(--text);
-        border-radius: 5px;
-        cursor: pointer;
-        position: relative;
-        transition: all 0.4s ease-in-out;
-    }
-    button::after{
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 100%;
-        background-color: var(--primaryColor);
-        color: var(--bgColor);
-        transition: all 0.4s ease-in-out;
-    }
-    button:hover::after{
-        width: 100%;
-        color: var(--bgColor);
-        transition: all 0.4s ease-in-out;
-        z-index: -1;
-    }
-    button:hover{
-        color: var(--bgColor);
-        transition: color 0.4s ease-in-out;
-    }
+  button {
+    background-color: transparent;
+    border: 2px solid var(--primaryColor);
+    color: white;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+  }
+  button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--primaryColor);
+    color: var(--bgColor);
+    transition: all 0.4s ease-in-out;
+  }
+  button:hover::after {
+    width: 100%;
+    color: var(--bgColor);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+  }
+  button:hover {
+    color: var(--bgColor);
+    transition: color 0.4s ease-in-out;
+  }
 </style>
