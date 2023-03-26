@@ -102,7 +102,7 @@ import Button from "../components/Button.astro";
     <div class="container">
       <div class="contentWrapper">
         <div class="subtitleWrapper">
-          <h2 class="subtitle">ReadMe</h2>
+          <h2 class="subtitle">ReadMe.</h2>
         </div>
         <p class="introText">
           Hi! My name is Gergo Starosta, but everyone calls me StariGeri. I am a
@@ -143,9 +143,8 @@ import Button from "../components/Button.astro";
           xmlns="http://www.w3.org/2000/svg"
           id="svg2"
           version="1.1"
-          width="600"
-          height="600"
           viewBox="0 0 600 600"
+          class="svgDots"
         >
           <g id="g8106"></g>
           <g id="g8121" transform="translate(0,50)"></g>
@@ -174,11 +173,18 @@ import Button from "../components/Button.astro";
       </div>
     </div>
   </section>
+  <section class="latestWritings-section">
+    <div class="subtitleWrapperBlog">
+      <h2 class="subtitle">Latest Writings.</h2>
+    </div>
+  </section>
   <script type="text/javascript" src="/vanilla-tilt.min.js"></script>
 </Layout>
 
 <style>
+  /****************/
   /*Hero Section */
+  /***************/
   h1 {
     font-size: 4rem;
     font-weight: 800;
@@ -283,8 +289,9 @@ import Button from "../components/Button.astro";
     z-index: -1;
     opacity: 0.3;
   }
-
+  /*********************/
   /*Read Me Section */
+  /********************/
   .readMe-section {
     width: 100%;
     height: 100%;
@@ -310,6 +317,12 @@ import Button from "../components/Button.astro";
     margin-top: 3%;
     margin-bottom: 3%;
     z-index: 1;
+    background: linear-gradient(90deg, #22577a, #57cc99, #38a3a5, #22577a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    background-size: 200%;
+    animation: background-pan 3s linear infinite;
   }
   .container {
     width: 80%;
@@ -319,13 +332,13 @@ import Button from "../components/Button.astro";
     align-items: center;
     justify-content: center;
     background-color: var(--bgColor);
-    z-index: 1;
   }
   .imageWrapper {
-    width: 50%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .readMe-section img {
     aspect-ratio: 4/5;
@@ -334,22 +347,35 @@ import Button from "../components/Button.astro";
     width: 100%;
     height: 100%;
     border-radius: 5px;
+    z-index: 5;
     object-fit: cover;
+  }
+  .svgDots {
+    position: absolute;
+    opacity: 0.3;
+    width: 80%;
+    height: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
   .readMe-section a {
     color: var(--primaryColor);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
+    z-index: 5;
   }
   .readMe-section a:hover {
     color: var(--secondaryColor);
   }
   .contentWrapper {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
   .introText {
@@ -361,6 +387,8 @@ import Button from "../components/Button.astro";
     width: 100%;
     max-width: 600px;
     line-height: 24px;
+    position: relative;
+    z-index: 5;
   }
   .buttonContainer {
     display: flex;
@@ -370,6 +398,21 @@ import Button from "../components/Button.astro";
     width: 100%;
     position: static;
     z-index: 5;
+  }
+  /**************************/
+  /*Latest Writings Section */
+  /**************************/
+  .latestWritings-section {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto 50px auto;
+    background-color: var(--bgColor);
+  }
+  .subtitleWrapperBlog{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
 <script>

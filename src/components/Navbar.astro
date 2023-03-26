@@ -70,26 +70,9 @@ const { activePage } = Astro.props;
           <a
             href="https://mail.google.com/mail/u/1/#inbox?compose=CllgCJfmrTFjwqlKSjggJlgrfzqkdxQSrpWfjHXxxQJGsLBLbPxTtPKPZBDvxQqdfFHfFhCMkHL"
             class="social__link"
-            data-tool-tip="Email"
+            data-tool-tip="starigeri.dev@gmail.com"
             target="_blank">EM</a
           >
-        </div>
-        <div class="writeSection">
-          <h3 class="connect__subtitle">I write sometimes</h3>
-          <div class="social__container">
-            <a
-              class="social__link"
-              data-tool-tip="Hashnode"
-              href="https://starigeri.hashnode.dev/"
-              target="_blank">BLOG</a
-            >
-            <a
-              class="social__link"
-              data-tool-tip="CodePen"
-              href="https://codepen.io/StariGeri"
-              target="_blank">CP</a
-            >
-          </div>
         </div>
       </div>
     </div>
@@ -340,7 +323,8 @@ const { activePage } = Astro.props;
     if (currentScroll <= 0) {
       navbar.classList.remove("scroll-up");
     }
-    if (currentScroll > lastScroll &&
+    if (
+      currentScroll > lastScroll &&
       !navbar.classList.contains("scroll-down")
     ) {
       navbar.classList.remove("scroll-up");
