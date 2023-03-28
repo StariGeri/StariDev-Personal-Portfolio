@@ -4,7 +4,10 @@ import Button from "../components/Button.astro";
 import BlogCard from "../components/BlogCard.astro";
 ---
 
-<Layout title="Home | StariGeri.dev" description="Welcome to my developer portfolio! I'm a Computer Science student who is really into Frontend development and Data Analysis/Science.">
+<Layout
+  title="Home | StariGeri.dev"
+  description="Welcome to my developer portfolio! I'm a Computer Science student who is really into Frontend development and Data Analysis/Science."
+>
   <section class="hero-section">
     <div class="hero__contentWrapper">
       <h1>Hey!<br />I'm <span class="text-gradient">StariGeri</span>.</h1>
@@ -106,20 +109,21 @@ import BlogCard from "../components/BlogCard.astro";
           <h2 class="subtitle">ReadMe.</h2>
         </div>
         <p class="introText">
-          Hi!👋  My name is Gergo Starosta, but everyone calls me StariGeri. I am a
-          Budapest-based Computer Science Engineering student at the leading
+          Hi!👋 My name is Gergo Starosta, but everyone calls me StariGeri. I am
+          a Budapest-based Computer Science Engineering student at the leading
           university of technology in Hungary. My best decision ever was to
           apply to this program, the world of IT opened up for me. <br /><br
           />When I was younger, I wanted to be a Michelin star Chef, later I
           wanted to be a videographer. I met with the phrase “programming” in
           High School, during one of our informatics classes. The idea of
-          creating digital products/software stuck with me. <br /><br />Now my
-          main interests are Front-End development and Data Analysis/Science. In
-          the offline space, I love to cook, I’m into photography and I'm an NBA
-          fanatic. Besides that, I love to teach, I’ve been helping youngsters
-          in Math, Informatics, and Physics for a couple of years now. Also, I
-          write a <a href="https://starigeri.hashnode.dev/" target="_blank"
-            >blog</a
+          creating digital products and building software, stuck with me. <br
+          /><br />Now my main interests are Front-End development and Data
+          Analysis/Science. In the offline space, I love to cook, I’m into
+          photography and I'm an NBA fanatic. Besides that, I love to teach,
+          I’ve been helping youngsters in Math, Informatics, and Physics for a
+          couple of years now. Also, I write a <a
+            href="https://starigeri.hashnode.dev/"
+            target="_blank">blog</a
           > about my coding journey and sometimes I create <a
             href="https://codepen.io/StariGeri"
             target="_blank">Codepens</a
@@ -197,19 +201,19 @@ import BlogCard from "../components/BlogCard.astro";
           readTime={5}
         />
         <BlogCard
-          title="How to create a custom scrollbar in CSS"
-          description="In this article, I will show you how to create a custom scrollbar in CSS. I will also show you how to create a custom scrollbar for a specific element in CSS."
+          title="How to create your own custom VSCode theme"
+          description="In this article, I will show you how to create your own custom VSCode theme."
           hrefLink="https://starigeri.hashnode.dev/how-to-create-a-custom-scrollbar-in-css"
-          date="26/03/2023"
-          tags={["Blog", "CSS"]}
-          readTime={5}
+          date="28/03/2023"
+          tags={["Blog", "VSCode"]}
+          readTime={10}
         />
       </ul>
       <div class="buttonContainerBlog">
         <Button text="Show More" url="https://starigeri.hashnode.dev/" />
       </div>
     </div>
-    <h2 class = "blogTag">BLOG</h2>
+    <h2 class="blogTag">BLOG</h2>
   </section>
   <script type="text/javascript" src="/vanilla-tilt.min.js"></script>
 </Layout>
@@ -325,6 +329,35 @@ import BlogCard from "../components/BlogCard.astro";
     right: 10%;
     z-index: -1;
     opacity: 0.3;
+  }
+  @media screen and (max-width: 768px) {
+    .codeDecor {
+      top: 40%;
+      left: 0;
+    }
+    h1 {
+      font-size: 2.8rem;
+      width: fit-content;
+      max-width: 90%;
+      text-align: center;
+    }
+    .hero-text {
+      font-size: 1rem;
+      font-family: var(--text);
+      font-weight: 400;
+      margin: 20px auto 0px auto;
+      width: fit-content;
+      max-width: 90%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .codeDecor {
+      top: 20%;
+      left: 0;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
   }
   /*********************/
   /*Read Me Section */
