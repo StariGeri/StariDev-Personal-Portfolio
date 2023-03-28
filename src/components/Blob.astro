@@ -4,6 +4,7 @@
  * @description Animated cursor following blob
  */
 ---
+
 <div id="blob"></div>
 
 <style>
@@ -42,6 +43,11 @@
       border-radius: 66% 34% 37% 63% / 57% 31% 69% 43%;
     }
   }
+  @media screen and(max-width: 768px) {
+    #blob {
+      height: 300px;
+    }
+  }
 </style>
 <script>
   const blob = document.getElementById("blob") as HTMLElement;
@@ -54,7 +60,7 @@
         left: `${clientX}px`,
         top: `${clientY}px`,
       },
-      { duration: 20000, fill: "forwards" }
+      { duration: 25000, fill: "forwards" }
     );
   };
 </script>
