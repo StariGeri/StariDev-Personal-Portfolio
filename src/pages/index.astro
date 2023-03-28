@@ -385,10 +385,9 @@ import BlogCard from "../components/BlogCard.astro";
     color: var(--primaryColor);
     font-family: var(--text);
     text-align: left;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin: 3% 0;
     z-index: 1;
-    background: linear-gradient(90deg, #22577a, #57cc99, #38a3a5, #22577a);
+    background: var(--text-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     white-space: nowrap;
@@ -402,6 +401,7 @@ import BlogCard from "../components/BlogCard.astro";
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
     background-color: var(--bgColor);
   }
   .imageWrapper {
@@ -471,6 +471,63 @@ import BlogCard from "../components/BlogCard.astro";
     z-index: 5;
     font-family: var(--text);
   }
+  @media screen and (max-width: 1000px) {
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      height: 100%;
+      gap: 10px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
+    .contentWrapper {
+      width: 90%;
+      align-items: center;
+    }
+    .introText {
+      font-size: 1.2rem;
+      max-width: 100%;
+    }
+    .imageWrapper {
+      width: 50%;
+    }
+    .svgDots {
+      width: 110%;
+      height: 110%;
+      max-width: 500px;
+      max-height: 500px;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .subtitle {
+      font-size: 2rem;
+      text-align: left;
+      margin: 30px 0;
+    }
+    .svgDots {
+      width: 110%;
+      height: 110%;
+      max-width: 400px;
+      max-height: 400px;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .introText {
+      font-size: 1rem;
+    }
+    .imageWrapper {
+      width: 50%;
+    }
+  }
+
   /**************************/
   /*Latest Writings Section */
   /**************************/
@@ -534,6 +591,25 @@ import BlogCard from "../components/BlogCard.astro";
     opacity: 0.1;
     transform: rotate(10deg);
     user-select: none;
+  }
+  @media screen and (max-width: 1000px) {
+    .blogTag {
+      top: 20%;
+      font-size: 10rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .blogTag {
+      top: 70%;
+      font-size: 10rem;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .blogTag {
+      top: 30%;
+      left: -10%;
+      font-size: 8rem;
+    }
   }
 </style>
 <script>

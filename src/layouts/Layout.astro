@@ -7,14 +7,14 @@ export interface Props {
   description: string;
 }
 
-const { title,description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta lang="en">
+    <meta lang="en" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -41,6 +41,7 @@ const { title,description } = Astro.props;
       #34a0a4 60%,
       #90e0ef 90%
     );
+    --text-gradient: linear-gradient(90deg, #22577a, #57cc99, #38a3a5, #22577a);
     --bgColor: #10101a;
     --bgColor2: #141b25;
     --primaryColor: #90e0ef;
