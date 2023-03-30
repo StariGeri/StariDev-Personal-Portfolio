@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  description=""
+  title="Projects | StariDev"
+  description="Discover my latest Web /Frontend projects and more"
+>
+  <div class="sectionContainer">
+    <section>
+      <div class="content">
+        <h1>Hello 1</h1>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h1>Hello 2</h1>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h1>Hello 3</h1>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h1>Hello 4</h1>
+      </div>
+    </section>
+    <div class="scrollDots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div id="scrollContainer">
+      <p class="scroll">Scroll</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="white"
+        class="svgScroll"
+        stroke-width="2"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M20.03 4.72a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 11.69l6.97-6.97a.75.75 0 011.06 0zm0 6a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06L12 17.69l6.97-6.97a.75.75 0 011.06 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  h1 {
+    font-size: 100px;
+    color: white;
+    font-family: var(--title);
+    z-index: 5;
+  }
+
+  .sectionContainer {
+    width: 100vw;
+    height: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    display: flex;
+  }
+  .sectionContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sectionContainer section {
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgColor);
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .scrollDots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--secondaryColor);
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .dot.active {
+    background-color: var(--primaryColor);
+    opacity: 1;
+  }
+  .svgScroll {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 23px;
+    z-index: 1;
+  }
+  .scroll {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1;
+    font-size: 1.5rem;
+    font-family: var(--text2);
+    writing-mode: vertical-lr;
+    color: white;
+    animation: moveUpDown 3s ease-in-out infinite forwards;
+    user-select: none;
+  }
+  .scroll-down {
+    opacity: 0;
+  }
+  @keyframes moveLeftRight {
+    0%,
+    100% {
+      transform: translatex(5px);
+    }
+    50% {
+      transform: translatex(-5px);
+    }
+  }
+  .content {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  @media (max-width: 768px) {
+    .scroll {
+      font-size: 1rem;
+    }
+    .svgScroll {
+      width: 15px;
+      height: 15px;
+    }
+  }
+</style>
+<script>
+  //horizontal scroll on mouse wheel
+  const scrollable = document.querySelector(".sectionContainer") as HTMLElement;
+  scrollable.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    if (e.deltaY > 0) {
+      scrollable.scrollLeft += scrollable.offsetWidth;
+    } else {
+      scrollable.scrollLeft -= scrollable.offsetWidth;
+    }
+  });
+
+  //navigation dots
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      scrollable.scrollLeft = index * scrollable.offsetWidth;
+    });
+  });
+
+  //change dot color when active
+  scrollable.addEventListener("scroll", () => {
+    const index = Math.round(scrollable.scrollLeft / scrollable.offsetWidth);
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+    dots[index].classList.add("active");
+  });
+
+  //Scrolling text disappear when scrolling
+  const scroll = document.querySelector(".scroll") as HTMLElement;
+  const svgScroll = document.querySelector(".svgScroll") as HTMLElement;
+  scrollable.addEventListener("scroll", () => {
+    if (scrollable.scrollLeft > 0) {
+      scroll.classList.add("scroll-down");
+      svgScroll.classList.add("scroll-down");
+    } else {
+      scroll.classList.remove("scroll-down");
+      svgScroll.classList.remove("scroll-down");
+    }
+  });
+</script>
